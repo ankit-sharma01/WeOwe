@@ -1,0 +1,182 @@
+﻿<div class="container">
+
+    <div class="container padtop70">
+
+        <h1 class="text-center" style="color:lightcyan"><b> {{needDetail.name}}</b> </h1>
+        <div class="col-lg-12">
+            <div>
+                <h3 class="text-center"> {{needDetail.summary}}</h3>
+
+                <div class="text-center col-md-3 ">
+
+                    <div class="row">
+                        <img ng-src="{{needDetail.imgurl}}" width="170" height="150" class="img-rounded center-block img-responsive" id="p5">
+                    </div>
+
+                    <div class="row">
+                        <a href="#/publicprof/{{needDetail.username}}"><h3>Acc. No. : {{needDetail.username}} </h3></a>
+                    </div>
+
+                    <div class="row">
+                        <h2 ng-class="class" ng-click=bookmark(needDetail.username)> </h2>
+                    </div>
+
+                </div>
+
+                <div class="col-md-9">
+
+                    <div>
+
+                        <p class="paratxt">
+                            {{needDetail.text}}
+                        </p>
+
+
+                        <h1 class="text-left"> $ {{needDetail.amount}} Needed</h1>
+                        <h1 class="text-left"> $ {{receivedAmount}}  Received so far </h1>
+                        <br /><br />
+                        <button ng-click="donate()" type="button" class="btn btn-success text-center" ng-hide="donateClicked" ng-submit="donate()">Donate</button>
+
+
+                        <div ng-show="donateClicked" class="text-left">
+
+                            <h3>How to make a contribution directly to the water department:</h3>
+                            <ol>
+                                <li>
+                                    <p class="text-left paratxt" >
+                                        1. Visit the <a class="paratxt" target="_blank" href="https://billpay.dwsd.org/iwr/user/login.seam#login:tabSet:0.1">Detroit Water &amp; Sewerage Department website</a> and select the <strong>Standard Access</strong> tab.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="text-left paratxt">
+                                        2. Enter <strong>{{needDetail.username}}</strong> as the account number and select <strong>Continue</strong>.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="text-left paratxt">
+                                        3. Select <strong>Make Payment</strong>. Please donate
+                                        based on your original pledged support.
+                                    </p>
+
+                                    <ol>
+                                        <li>
+                                            <p class="text-left paratxt">
+                                               4.  Please call <strong>+1.617.955.3365 </strong>if you have any questions about this.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p class="text-left paratxt">
+                                               5. Select the <strong>Continue</strong> button.
+                                            </p>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    <p class="text-left paratxt">
+                                      6. Use your email address in the email field to receive the payment receipt.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="text-left paratxt">
+                                      7. Forward the payment receipt to <strong>arushi.gangrade@sjsu.edu</strong>
+                                        so the family you've assisted has a record of the confirmation number.
+                                    </p>
+                                </li>
+                            </ol>
+
+                        </div>
+
+                        <hr ng-show="donateClicked">
+
+                        <h3 ng-show="donateClicked" > Please enter the amount to be donated and a brief message</h3>
+
+                        <form class="text-grey" id="myForm" name="myForm" ng-show="donateClicked" ng-submit="processDonation()">
+
+                            <div class="form-group">
+                                <label>Amount</label>
+                                <input ng-model="donation.amount" type="number" min="1" placeholder="Enter the amount without $ sign" class="form-control width100" ng-required="donateClicked">
+                                <span ng-show="myForm.user.$error.required">At least $1 required.</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>A brief message </label>
+                                <input ng-model="donation.message" type="text" placeholder="God bless value !" class="form-control  width100">
+                            </div>
+
+                            <button type="submit" name="submit" id="submit" value="Submit" type="button" class="btn btn-success">Donate</button>
+
+                            <button ng-click="cancel()" type="button" class="btn btn-warning">Not now</button>
+
+                        </form>
+
+        
+                        <p ng-show="donationDone" class="alert alert-success" id="succMsg"> <b>Donation received successfully. Thank you for helping me !! </b></p>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+        
+
+    </div>
+
+    <hr>
+
+    <div class="container ">
+
+        <div class="col-sm-2">
+        </div>
+
+        <div class="col-sm-8">
+
+            <h3  ng-show="needDetail.comment.length">All comments </h3>
+            <h3  ng-hide="needDetail.comment.length">Be first to post a comment </h3>
+
+            <div class="media well" ng-repeat="comment in needDetail.comment">
+
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <a class="text-blue" href="#/publicprof/{{comment.commentor}}"> {{comment.commentor}} </a>
+
+                        <small class="pull-right">{{comment.commentedOn | date: 'medium'}} </small>
+                    </h4>
+                    {{comment.text}}
+                </div>
+            </div>
+
+
+
+
+
+
+            <div>
+                <h3 >Leave a Comment:</h3>
+
+                <form role="form">
+
+                    <div class="form-group">
+
+                        <textarea ng-model="newComment" class="form-control" rows="3"></textarea>
+
+                    </div>
+
+                    <button ng-click="postComment()" type="submit" class="btn btn-primary pull-right">Submit</button>
+
+
+                </form>
+            </div>
+
+
+        </div>
+
+        <div class="col-sm-2">
+        </div>
+    </div>
+
+</div>
+
+

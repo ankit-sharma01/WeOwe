@@ -1,0 +1,67 @@
+<div id="header">
+    <div class="container">
+        <div class="text-center ">
+
+            <h1 class="text-center">We Owe </h1>
+                <h2 class=" text-center"><b>A drop of water is worth more than a sack of gold to a thirsty man ! </b></h2>
+            <br />
+                <h3 class="text-center">
+                    Our mission is to help the needy people who have encountered
+                    hardships and are struggling to survive without running water in their homes.
+                    We do not need to rely on charities or government. 
+                    We help people raise funds to pay their water bills !
+                </h3>
+
+
+
+            <div class="col-lg-6" ng-hide="currentUser">
+                <h1>Need Help?</h1>
+                <a ng-click="go('/registerExtra')" class="btn orange"><h4>Sign Up as Receiver</h4></a>
+            </div>
+                <div class="">
+                    <h1>Help Someone</h1>
+                    <a ng-click="go('/register')" class="btn blue" ng-hide="currentUser"><h4>Sign Up as Donor</h4></a>
+                    <button ng-click="go('/view/all')" type="button" class="btn btn-lg btn-primary" ng-show="currentUser">Find People in Need</button>
+                </div>
+              
+                <br />
+            <div ng-hide="currentUser">
+
+                <h3>Sign in below</h3>
+
+                <div class="row">
+                    <hr />
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4" id="loginForm">
+                        <form class="" id="loginForm" ng-hide="currentUser">
+
+                            <div class="form-group">
+                                <input ng-model="user.username" type="text" placeholder="Username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input ng-model="user.password" type="password" placeholder="Password" class="form-control">
+                            </div>
+                            <button ng-click="login(user)" type="submit" class="btn btn-success">Sign In</button>
+                       
+                            <p class="text-grey">
+                                Don't have an account? Signup above
+                            </p>
+                          ..  <!--
+                            <button ng-click="go('/register')" type="button" class="btn btn-warning">Sign Up as a Donor</button>
+                            <button ng-click="go('/registerExtra')" type="button" class="btn btn-info">Sign Up as a Receiver</button>
+                        -->     
+                                </form>
+                    </div>
+                    <div class="col-lg-4">
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+

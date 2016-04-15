@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+   <title>Guest Check-In</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="../css/bootstrap.css" rel="stylesheet">-->
+
+   <link href="css/new-template.css" rel="stylesheet">
+
+
+ 
+  </head>
+
+  <body >
+    		  <form class="form-inline" role="form" name='checkin' action="/checkinGuest" method='PUT' enctype='application/json'>
+    		   <div class="btn  btn-warning">
+    		     <h1>Check In Details<br/><h1>
+    		       
+            <label for="reservation_id">Reservation ID</label>
+            <br/>
+   				 <input type="text" class="form-control" name="reservation_id" required><br/><br/>
+   			
+   			 <label for="license_no">License No</label>
+   			 <br/>
+   				<input type="text" class="form-control" name="license_no" required><br/><br/>
+   				 
+ 			  <button type="submit" class="btn  btn-warning">Verify Reservation</button>
+    		  </form>
+	  </div>
+  		
+  		</div>
+  	</div>  
+  
+    
+   
+       </div>  
+        </div>
+        
+        </div>
+        
+        
+      </div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../client/js/bootstrap.min.js"></script>
+   
+  </body>
+</html>
